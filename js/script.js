@@ -1,6 +1,10 @@
 "use strict";
 window.addEventListener('DOMContentLoaded', () => {
 
+
+
+
+    
     //РЕАЛИЗАЦИЯ РАБОТЫ С ТАБАМИ
     const tabs = document.querySelectorAll('.tabheader__item'),
     tabsContent = document.querySelectorAll('.tabcontent'),
@@ -37,6 +41,11 @@ window.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+
+
+
+
+
 
 
 
@@ -106,6 +115,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+
+
+
+
     // РАБОТА С МОДАЛЬНЫМИ ОКНАМИ
     const btnsModal = document.querySelectorAll('[data-modal]'),
           modal = document.querySelector('.modal');
@@ -145,6 +159,11 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     window.addEventListener('scroll', showModalByScroll);
+
+
+
+
+
 
 
 
@@ -215,6 +234,98 @@ window.addEventListener('DOMContentLoaded', () => {
         21,
         '.menu .container'
     ).render();
+
+
+
+
+
+
+
+
+
+
+    // Forms - работа с модальными формами и сервером
+    const forms = document.querySelectorAll('form'),
+          message = {
+              loading: 'img/form/spinner.svg',
+              success: 'Спасибо! Скоро мы с вами свяжемся!',
+              failure: 'Что-то пошло не так...'
+          };
+
+    forms.forEach(item => {
+        postData(item);
+    });
+
+    function postData(form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const statusMessage = document.createElement('img');
+            statusMessage.src = message.loading;
+            statusMessage.style.cssText = `
+                display: block;
+                margin: 0 auto;
+                margin-top: 10px;
+            `;
+            form.insertAdjacentElement('afterend', statusMessage);
+
+            const r = new XMLHttpRequest();
+            r.open('POST', 'server.php');
+            
+            const formData = new FormData(form);
+
+            //1 вариант отправки данных на сервер - с помощью FormData, без использования JSON
+            // r.send(formData);
+
+            // 2 вариант отправки данных на сервер, используя JSON
+            r.setRequestHeader('Content-type', 'application/json');
+            const object = {};
+            formData.forEach((value, key) => {
+                object[key] = value;
+            });
+            const json = JSON.stringify(object);
+            r.send(json);
+
+            // собственно, сам обработчик загрузки
+            r.addEventListener('load', () => {
+                if (r.status === 200) {
+                    console.log(r.response);
+                    showThanksModal(message.success);
+                    form.reset();
+                    statusMessage.remove();
+                } else {
+                    showThanksModal(message.failure);
+                }
+            });
+
+        });
+    }
+
+    function showThanksModal(message) {
+        const prevModalDialog = document.querySelector('.modal__dialog');
+    
+        prevModalDialog.classList.add('hide');
+        openModal();
+    
+        const thanksModal = document.createElement('div');
+        thanksModal.classList.add('modal__dialog');
+        thanksModal.innerHTML = `
+            <div class="modal__content">
+                <div class="modal__close" data-close>&times;</div>
+                <div class="modal__title">${message}</div>
+            </div> 
+        `;
+    
+        document.querySelector('.modal').append(thanksModal);
+        setTimeout(() => {
+            thanksModal.remove();
+            prevModalDialog.classList.add('show');
+            prevModalDialog.classList.remove('hide');
+            closeModal();
+        }, 4000);
+    }
+
+
 
 
 
