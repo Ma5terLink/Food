@@ -5,6 +5,8 @@ The FOOD training project on the course of Ivan Petrichenko "JS + React from scr
 Working with the project is aimed at studying JS. Everything will be committed, all the stages of my work with the project.
 -----
 
+(19-09-21 02:20) =04=
+- Добавлен код для работы с карточками, вывода их на страницу используя JS. Версия 1. Самая примитивная реализация. Без сервера. Пример работы с шаблонизацией. - Added code for working with cards, displaying them on the page using JS. Version 1. The most primitive implementation. Without a server. An example of working with templating.
 
 (19-09-21 02:00) =03=
 - Прописаны модальные окна в завершённой своей стадии. - Modal windows are registered in their completed stage.
