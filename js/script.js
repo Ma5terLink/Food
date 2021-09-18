@@ -41,6 +41,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 
+
     //ТАЙМЕР АКЦИИ
     const deadline = '2021-09-25T00:00:00.000Z'; // Хотим, чтоб локально было это время
    
@@ -100,6 +101,61 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     setClock('.timer', deadline);
+
+
+
+
+
+    // РАБОТА С МОДАЛЬНЫМИ ОКНАМИ
+    const btnsModal = document.querySelectorAll('[data-modal]'),
+          modal = document.querySelector('.modal');
+
+    function openModal() {
+        modal.classList.add('show');
+        modal.classList.remove('hide');
+        document.body.style.overflow = 'hidden';
+        clearInterval(modalTimerId);
+    }
+
+    btnsModal.forEach(item => {
+        item.addEventListener('click', openModal);
+    });
+
+    function closeModal() {
+        modal.classList.add('hide');
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+    }
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal || e.target.getAttribute('data-close') == '') { closeModal(); }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.code === 'Escape' && modal.classList.contains('show')) { closeModal(); }
+    });
+
+    const modalTimerId = setTimeout(openModal, 50000);
+
+    function showModalByScroll () {
+        if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
+            openModal();
+            window.removeEventListener('scroll', showModalByScroll);
+        }
+    }
+
+    window.addEventListener('scroll', showModalByScroll);
+
+
+
+
+
+
+
+
+
+
+
 
 
 });

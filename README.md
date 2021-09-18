@@ -5,16 +5,17 @@ The FOOD training project on the course of Ivan Petrichenko "JS + React from scr
 Working with the project is aimed at studying JS. Everything will be committed, all the stages of my work with the project.
 -----
 
+
+(19-09-21 02:00) =03=
+- Прописаны модальные окна в завершённой своей стадии. - Modal windows are registered in their completed stage.
+
 (19-09-21 01:25) =02=
-RU - Реализация таймера акции. С поправкой на часовой пояс МСК+2.
-EN - Implementation of the action timer. Adjusted for the Moscow time zone+2.
+- Реализация таймера акции. С поправкой на часовой пояс МСК+2. Implementation of the action timer. Adjusted for the Moscow time zone+2.
 
 
 (19-09-21 01:00) =01=
-RU - Реализация табов в JS. Версия 1.
-EN - Implementation of tabs in JS. Version 1.
+- Реализация табов в JS. Версия 1. Implementation of tabs in JS. Version 1.
 
 
 (18-09-21 20:50) =00=
-RU - Стартовая позиция. Готовый сверстаный проект с картинками, стилями (мною не верстался).
-EN - Starting position. Ready-made project with pictures, styles (I did not make up).
+- Стартовая позиция. Готовый сверстаный проект с картинками, стилями (мною не верстался). Starting position. Ready-made project with pictures, styles (I did not make up).
