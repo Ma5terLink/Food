@@ -6,6 +6,8 @@ Working with the project is aimed at studying JS. Everything will be committed, 
 -----
 
 
+(19-09-21 01:00) =01=
+- Реализация табов в JS. Версия 1.
 
 
 (18-09-21 20:50) =00=
