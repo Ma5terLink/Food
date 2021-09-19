@@ -271,25 +271,21 @@ window.addEventListener('DOMContentLoaded', () => {
             
             const formData = new FormData(form);
 
-            // 2 вариант отправки данных на сервер, используя JSON
-            // const object = {};
-            // formData.forEach((value, key) => {
-            //     object[key] = value;
-            // });
+            // подготовка данных для отправки в формате JSON
+            const object = {};
+            formData.forEach((value, key) => {
+                object[key] = value;
+            });
 
-            // const json = JSON.stringify(object);
-
-            // ВАРИАНТ ОТПРАВКИ ДАННЫХ ФОРМЫ ЧЕРЕЗ ФЕТЧ ИСПОЛЬЗУЯ FormData,
-            // БЕЗ ИСПОЛЬЗОВАНИЯ JSON
+            // ВАРИАНТ ОТПРАВКИ ДАННЫХ ФОРМЫ ЧЕРЕЗ ФЕТЧ ИСПОЛЬЗУЯ 
+            // ПРЕОБРАЗОВАНИЕ В ФОРМАТ ДАННЫХ JSON,
             fetch('server.php', {
                 method: "POST",
-                // headers: {
-                //     'Content-type': 'application/json'
-                // },
-                body: formData
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(object)
             })
-            // Здесь мы проверяем статус запроса к серверу, если он неудачен то
-            // цепочка промисов разрывается, извиняемся, закрываем всё (catch и finally)...
             .then(data => {
                 if (data.status !== 200) {
                     data.reject();                

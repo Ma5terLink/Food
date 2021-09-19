@@ -5,6 +5,9 @@ The FOOD training project on the course of Ivan Petrichenko "JS + React from scr
 Working with the project is aimed at studying JS. Everything will be committed, all the stages of my work with the project.
 -----
 
+(19-09-21 13:35) =06-2=
+- Функция отправки данных на сервер из форм доработана, для работы с данными типа JSON. С =06-1= добавлена проверка на состояние запроса, на случай возникновения какой-либо ошибки. The function of sending data to the server from forms has been modified to work with JSON-type data. Starting from =06-1=, a check for the status of the request has been added, in case any error occurs.
+
 (19-09-21 13:20) =06-1=
 - Прописан вариант отправки данных на сервер из форм, используя Fetch API(fetch) и promise. The option of sending data to the server from the forms using Fetch API(fetch) and promise is prescribed.
 
