@@ -5,7 +5,10 @@ The FOOD training project on the course of Ivan Petrichenko "JS + React from scr
 Working with the project is aimed at studying JS. Everything will be committed, all the stages of my work with the project.
 -----
 
-(19-09-21 ) =07=
+(19-09-21 18:40) =07-1=
+- Прописан второй вариант получения данных с сервера и отрисовки карточек товаров "на лету". The second option of receiving data from the server and rendering product cards "on the fly"is prescribed.
+
+(19-09-21 18:25) =07=
 - Добавлена ф-я получения данных "карточек товаров" с сервера и вывод их на страницу (версия 1). Added the function of receiving data of "product cards" from the server and displaying them on the page (version 1).
 - Подключен к работе сервер json-server. Изменена функция отправки запросов из формы, с помощью отдельной функции "собирающей" запрос. The json-server is connected to work. The function of sending requests from the form has been changed, using a separate function that "collects" the request.
 
