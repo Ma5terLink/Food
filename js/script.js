@@ -268,34 +268,45 @@ window.addEventListener('DOMContentLoaded', () => {
                 margin-top: 10px;
             `;
             form.insertAdjacentElement('afterend', statusMessage);
-
-            const r = new XMLHttpRequest();
-            r.open('POST', 'server.php');
             
             const formData = new FormData(form);
 
-            //1 вариант отправки данных на сервер - с помощью FormData, без использования JSON
-            // r.send(formData);
-
             // 2 вариант отправки данных на сервер, используя JSON
-            r.setRequestHeader('Content-type', 'application/json');
-            const object = {};
-            formData.forEach((value, key) => {
-                object[key] = value;
-            });
-            const json = JSON.stringify(object);
-            r.send(json);
+            // const object = {};
+            // formData.forEach((value, key) => {
+            //     object[key] = value;
+            // });
 
-            // собственно, сам обработчик загрузки
-            r.addEventListener('load', () => {
-                if (r.status === 200) {
-                    console.log(r.response);
-                    showThanksModal(message.success);
-                    form.reset();
-                    statusMessage.remove();
-                } else {
-                    showThanksModal(message.failure);
+            // const json = JSON.stringify(object);
+
+            // ВАРИАНТ ОТПРАВКИ ДАННЫХ ФОРМЫ ЧЕРЕЗ ФЕТЧ ИСПОЛЬЗУЯ FormData,
+            // БЕЗ ИСПОЛЬЗОВАНИЯ JSON
+            fetch('server.php', {
+                method: "POST",
+                // headers: {
+                //     'Content-type': 'application/json'
+                // },
+                body: formData
+            })
+            // Здесь мы проверяем статус запроса к серверу, если он неудачен то
+            // цепочка промисов разрывается, извиняемся, закрываем всё (catch и finally)...
+            .then(data => {
+                if (data.status !== 200) {
+                    data.reject();                
                 }
+                return data;
+            })
+            .then(data => data.text())
+            .then(data => {
+                console.log(data);
+                showThanksModal(message.success);
+            })
+            .catch(() => {
+                showThanksModal(message.failure);
+            })
+            .finally(() => {
+                form.reset();
+                statusMessage.remove();  
             });
 
         });
