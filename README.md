@@ -6,10 +6,15 @@ Working with the project is aimed at studying JS. Everything will be committed, 
 -----
 
 
+(16-01-22) =08-1=
+- Мелкий апгрейд кода слайдера, с учётом изученного материала по регулярным выражениям.
+A minor upgrade of the slider code, taking into account the studied material on regular expressions.
+
 
 (14-01-22) =08=
 - Прописан слайдер (в двух вариантах) по типу каресель.
 - The slider is registered (in two versions) according to the type of carousel.
+
 
 (19-09-21 18:40) =07-1=
 - Прописан второй вариант получения данных с сервера и отрисовки карточек товаров "на лету".
