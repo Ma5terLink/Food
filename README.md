@@ -5,6 +5,10 @@ The FOOD training project on the course of Ivan Petrichenko "JS + React from scr
 Working with the project is aimed at studying JS. Everything will be committed, all the stages of my work with the project.
 -----
 
+(02-04-22) =09=
+- Добавлен калькулятор калорий.
+- Added calorie calculator.
+
 
 (16-01-22) =08-1=
 - Мелкий апгрейд кода слайдера, с учётом изученного материала по регулярным выражениям.
