@@ -5,6 +5,11 @@ The FOOD training project on the course of Ivan Petrichenko "JS + React from scr
 Working with the project is aimed at studying JS. Everything will be committed, all the stages of my work with the project.
 -----
 
+(04-04-22) =11=
+- Проект перестроен под модульную систему ES6(JS).
+- The project has been rebuilt for the ES6 modular system (JS).
+
+
 (03-04-22) =10=
 - Проект перестроен под сборщик Webpack.
 - The project has been rebuilt for the Webpack collector.

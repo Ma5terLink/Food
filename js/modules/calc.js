@@ -1,4 +1,4 @@
-function calcCal() {
+function calc() {
     // Калькулятор калорий
     const result = document.querySelector('.calculating__result span');
        
@@ -107,4 +107,4 @@ function calcCal() {
     getDynamicInfo('#age');
 }
 
-module.exports = calcCal;
+export default calc;

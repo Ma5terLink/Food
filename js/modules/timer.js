@@ -1,6 +1,5 @@
-function timer() {
+function timer(id, deadline) {
      //ТАЙМЕР АКЦИИ
-     const deadline = '2022-07-15T00:00:00.000Z'; // Хотим, чтоб локально было это время
    
      function getTimeRemaining(endtime) {
          // получаем разницу в миллисекундах между требуемой датой и текущей
@@ -57,7 +56,7 @@ function timer() {
          }
      }
  
-     setClock('.timer', deadline);
+     setClock(id, deadline);
 }
 
-module.exports = timer;
+export default timer;
